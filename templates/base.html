@@ -45,14 +45,10 @@
                 </div>
                 <nav id="nav-menu-container">
                     <ul class="nav-menu">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="blog-home.html">Blog</a></li>        
-                        
-                        <li class="menu-has-children"><a href="">Pages</a>
+                        <li><a href="{% url 'home:home_page' %}">Home</a></li>
+                        <li><a href="{% url 'home:about' %}">About</a></li>
+                        <li><a href="{% url 'blog:blog_home' %}">Blog</a></li>        
                             <ul>
-                                <li><a href="elements.html">Elements</a></li>
-                                <li class="menu-has-children"><a href="">Level 2 </a>
                                     <ul>
                                         <li><a href="#">Item One</a></li>
                                         <li><a href="#">Item Two</a></li>
@@ -60,7 +56,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="{% url 'home:contact' %}">Contact</a></li>
                     </ul>
                 </nav><!-- #nav-menu-container -->
             </div>
