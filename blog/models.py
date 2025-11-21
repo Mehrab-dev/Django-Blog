@@ -21,7 +21,7 @@ class Post(models.Model) :
     counted_view = models.IntegerField(default=0)
     
     class Meta :
-        ordering = ['created_date']
+        ordering = ['published_date']
 
     def __str__(self) :
         return '{} - {}'.format(self.id,self.title)

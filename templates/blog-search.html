@@ -1,30 +1,7 @@
-{% load static %}
 <div class="single-sidebar-widget search-widget">
-    <form class="search-form" action="#">
-        <input placeholder="Search Posts" name="search" type="text" onfocus="this.placeholder = ''"
+    <form class="search-form" action="{% url 'blog:search' %}" method="get">
+        <input placeholder="Search Posts" name="s" type="text" onfocus="this.placeholder = ''"
             onblur="this.placeholder = 'Search Posts'">
         <button type="submit"><i class="fa fa-search"></i></button>
     </form>
-</div>
-<div class="single-sidebar-widget user-info-widget">
-    <img src="{% static 'img/blog/user-info.png ' %}" alt="">
-    <a href="#">
-        <h4>Mehrab Khanmohammadi</h4>
-    </a>
-    <p>
-        junior Backend developer
-    </p>
-    <ul class="social-links">
-        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="#"><i class="fa fa-github"></i></a></li>
-        <li><a href="#"><i class="fa fa-behance"></i></a></li>
-    </ul>
-    <p>
-        I am Mehrab Khanmohammadi.
-        A junior Backend developer.
-        I created this site to showcase my resume and demonstrate my abilities to work with Django and to familiarize myself with the concepts of templates, models, and URLs.
-        I used a ready-made template for the frontend section to create this site.
-        Source of the frontend template : <a target="_blank" href="https://colorlib.com/">colorlib.com</a>
-    </p>
 </div>

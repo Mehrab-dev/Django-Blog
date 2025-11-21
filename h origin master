@@ -1,0 +1,29 @@
+[33mcommit 13a4958290eab11799cc32604653df2856eb2cc1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m)[m
+Author: Mehrab <programmer.py.mail@gmail.com>
+Date:   Wed Nov 19 17:07:32 2025 +0330
+
+    Create Blog_Search.html. Display the author name, categories, and publication date of each post. Add CSS file to blog_singles
+
+[33mcommit 0e273c15618eda83f326d00627ea23925ab0ff22[m[33m ([m[1;31morigin/master[m[33m)[m
+Author: Mehrab <programmer.py.mail@gmail.com>
+Date:   Wed Nov 19 03:55:14 2025 +0330
+
+    created Post and Category models for blog app
+
+[33mcommit 02177270138d05d2f8c06975cc6dea3fae20a07d[m
+Author: Mehrab <programmer.py.mail@gmail.com>
+Date:   Tue Nov 18 02:32:56 2025 +0330
+
+    loading templates in the browser
+
+[33mcommit e49e96287b86838d8635e9250ce145ccd8d58bfb[m
+Author: Mehrab <programmer.py.mail@gmail.com>
+Date:   Mon Nov 17 01:29:47 2025 +0330
+
+    created home page
+
+[33mcommit d850171be0ede2cdec0b4652dccfde708257e696[m
+Author: Mehrab <programmer.py.mail@gmail.com>
+Date:   Sat Nov 15 02:44:47 2025 +0330
+
+    start project and created blog & home app

@@ -1,0 +1,16 @@
+{% load static %}
+<div class="popular-post-list">
+    {% for i in posts %}
+    <div class="single-post-list d-flex flex-row align-items-center">
+        <div class="thumb">
+            <img class="img-fluid" src="{{i.image.url}}" alt="">
+        </div>
+        <div class="details">
+            <a href="{% url 'blog:blog_single' pk=i.id %}">
+                <h6>{{i.title}}</h6>
+            </a>
+            <p>{{i.published_date|date:"d M Y"}}</p>
+        </div>
+    </div>
+    {% endfor %}
+</div>
