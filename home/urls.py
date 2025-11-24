@@ -4,9 +4,9 @@ from . import views
 app_name = 'home'
 
 urlpatterns = [
-path('',views.home,name='home_page') ,
-path('about/',views.about,name='about') ,
-path('contact/',views.contact,name='contact') ,
-path('newsletter/',views.newsletter,name='newsletter')
+    path('',views.home,name='home_page') ,
+    path('about/',views.about,name='about') ,
+    path('contact/',views.contact,name='contact') ,
+    path('newsletter/',views.newsletter,name='newsletter')
 
 ]

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from home.models import Newsletter
+from home.forms import NewsletterForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 
@@ -15,11 +15,12 @@ def contact(request) :
 
 def newsletter(request) :
     if request.method == 'POST' :
-        form = Newsletter(request.POST)
+        form = NewsletterForm(request.POST)
         if form.is_valid() :
             form.save()
             return HttpResponseRedirect(reverse('home:home_page'))
-    form = Newsletter()
+    else :
+        form = NewsletterForm()
     context = {'form':form}
     return render(request,'base.html',context)
             

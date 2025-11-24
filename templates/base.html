@@ -111,10 +111,8 @@
                             For business professionals caught between high OEM price and mediocre print and graphic
                             output.
                         </p>
-                        <div id="mc_embed_signup">
-                            <form target="_blank"
-                                action="{% url 'home:newsletter' %}"
-                                method="post" class="subscription relative">
+                        <div>
+                            <form action="{% url 'home:newsletter' %}" method="post" class="subscription relative">
                                 {% csrf_token %}
                                 <div class="input-group d-flex flex-row">
                                     <input name="email" placeholder="Email Address" onfocus="this.placeholder = ''"
