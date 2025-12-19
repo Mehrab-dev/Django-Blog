@@ -6,5 +6,8 @@ class PostAdmin(admin.ModelAdmin) :
     list_filter = ['status','author']
     search_fields = ['status','author']
 
-admin.site.register(Category)
+class CategoryAdmin(admin.ModelAdmin) :
+    list_display = ['name','created_date']
+
+admin.site.register(Category,CategoryAdmin)
 admin.site.register(Post,PostAdmin)
