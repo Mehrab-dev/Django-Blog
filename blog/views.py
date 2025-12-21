@@ -12,6 +12,12 @@ def blog_home(request) :
     context = {'posts':posts,'tags':tags}
     return render(request,'blog/blog-home.html',context)
 
+def blog_single(request,pk) :
+    posts = Post.objects.filter(status=True)
+    post = get_object_or_404(posts,pk=pk)
+    context = {'post':post}
+    return render(request,'blog/blog-single.html',context)
+
 def blog_search(request) :
     posts = Post.objects.filter(status=True)
     if request.method == 'GET' :
