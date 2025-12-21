@@ -1,13 +1,15 @@
-from django.shortcuts import render
+from django.shortcuts import render , get_object_or_404
 from .models import Post
 from .forms import NewsletterForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from taggit.models import Tag
 
 # create functions
 def blog_home(request) :
     posts = Post.objects.filter(status=True)
-    context = {'posts':posts}
+    tags = Tag.objects.all()
+    context = {'posts':posts,'tags':tags}
     return render(request,'blog/blog-home.html',context)
 
 def blog_search(request) :
@@ -22,6 +24,14 @@ def blog_category(request,cat_name) :
     posts = posts.filter(category__name__iexact = cat_name)
     context = {'posts':posts}
     return render(request,'blog/blog-home.html',context)
+
+def blog_tag(request,tag_name) :
+    tag = get_object_or_404(Tag,name__iexact = tag_name)
+    posts = Post.objects.filter(status=True,tags__name__iexact=tag.name)
+    tags = Tag.objects.all()
+    context = {'posts':posts,'tags':tags}
+    return render(request,'blog/blog-home.html',context)
+
 
 
 def newsletter(request) :

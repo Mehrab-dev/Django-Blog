@@ -1,6 +1,6 @@
 from django.db import models 
 from django.contrib.auth.models import User
-
+from taggit.managers import TaggableManager
 
 # create models
 class Post(models.Model) :
@@ -9,6 +9,7 @@ class Post(models.Model) :
     content = models.TextField()
     author = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     category = models.ForeignKey('Category',on_delete=models.SET_NULL,null=True)
+    tags = TaggableManager()
     status = models.BooleanField(default=True)
     counted_view = models.IntegerField(default=0)
     created_date = models.DateTimeField(auto_now_add=True)
