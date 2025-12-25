@@ -1,6 +1,6 @@
 from django.shortcuts import render , get_object_or_404
-from .models import Post
-from .forms import NewsletterForm
+from .models import Post , Comment
+from .forms import NewsletterForm , CommentForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from taggit.models import Tag
@@ -15,7 +15,14 @@ def blog_home(request) :
 def blog_single(request,pk) :
     posts = Post.objects.filter(status=True)
     post = get_object_or_404(posts,pk=pk)
-    context = {'post':post}
+    if request.method == 'POST' :
+        form = CommentForm(request.POST)
+        if form.is_valid() :
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.save()
+    comments = Comment.objects.filter(approved=True)
+    context = {'post':post,'comments':comments}
     return render(request,'blog/blog-single.html',context)
 
 def blog_search(request) :
