@@ -1,7 +1,16 @@
 from django import template
-from blog.models import Post , Category
+from blog.models import Post , Category , Comment
 
 register = template.Library()
+
+@register.simple_tag(name='counted_comment')
+def function(pk) :
+    return Comment.objects.filter(post=pk,approved=True).count()
+
+@register.filter
+def snippets(value,args=10) :
+    return value[:args] + '...'
+
 
 @register.inclusion_tag('blog/blog-popularpost.html')
 def popularpost() :

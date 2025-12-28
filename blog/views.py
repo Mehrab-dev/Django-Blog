@@ -4,10 +4,17 @@ from .forms import NewsletterForm , CommentForm
 from django.urls import reverse
 from django.http import HttpResponseRedirect
 from taggit.models import Tag
+from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
+from django.contrib import messages
 
 # create functions
+@login_required
 def blog_home(request) :
     posts = Post.objects.filter(status=True)
+    paginator = Paginator(posts,2)
+    number_page = request.GET.get('page')
+    posts = paginator.get_page(number_page)
     tags = Tag.objects.all()
     context = {'posts':posts,'tags':tags}
     return render(request,'blog/blog-home.html',context)
@@ -21,6 +28,9 @@ def blog_single(request,pk) :
             comment = form.save(commit=False)
             comment.post = post
             comment.save()
+            messages.add_message(request,messages.SUCCESS,'your comment was successfully submit')
+        else :
+            messages.add_message(request,messages.SUCCESS,'your comment was not registered')
     comments = Comment.objects.filter(approved=True)
     context = {'post':post,'comments':comments}
     return render(request,'blog/blog-single.html',context)
